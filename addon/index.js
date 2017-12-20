@@ -475,7 +475,7 @@ export function changeset(obj, validateFn = defaultValidatorFn, validationMap = 
           continue;
         }
 
-        if (isObject(object[key])) {
+        if (isObject(value) && !(value instanceof Ember.Object)) {
           this._allKeys(object[key], keys, scope + key + '.');
         } else {
           keys.push(scope + key);
